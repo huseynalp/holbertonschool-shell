@@ -1,2 +1,3 @@
-#!/bin/bashcho -e "$(echo $PATH | tr ":" "
-" | wc -l)"
+#!/bin/bash
+echo -e "$(echo $PATH | tr : '
+' | grep / | wc -l)"
