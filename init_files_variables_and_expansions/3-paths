@@ -1,4 +1,2 @@
-#!/bin/bash
-# Print number of directories in PATH
-echo -e "$(echo $PATH | tr ":" "
+#!/bin/bashcho -e "$(echo $PATH | tr ":" "
 " | wc -l)"
