@@ -1,0 +1,6 @@
+#!/bin/bash
+best_variable() {
+    local BEST="School"
+    echo "$BEST"
+}
+best_variable
