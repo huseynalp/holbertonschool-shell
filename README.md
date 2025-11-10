@@ -1,2 +1,1 @@
-# Root README
-# Holberton School is the best
+My second readme
