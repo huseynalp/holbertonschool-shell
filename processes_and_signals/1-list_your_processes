@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script to list all running processes in a user-oriented format with hierarchy
 
 ps -ef --forest
