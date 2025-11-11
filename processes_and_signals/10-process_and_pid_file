@@ -5,7 +5,7 @@ PID_FILE="/var/run/myscript.pid"
 
 # Function to clean up and exit
 cleanup() {
-    sudo rm -f "$PID_FILE"
+    rm -f "$PID_FILE"
     exit 0
 }
 
