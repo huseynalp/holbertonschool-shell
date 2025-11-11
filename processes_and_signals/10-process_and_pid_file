@@ -1,13 +1,31 @@
 #!/usr/bin/env bash
-# Script creates a PID file, prints messages, and handles signals
+# Script that runs indefinitely and handles signals
 
-PID_FILE="/tmp/myscript.pid"
-echo "$$" > "$PID_FILE"
+PID_FILE="/var/run/myscript.pid"
 
-# Handle signals
-trap 'echo "I hate the kill command"' SIGTERM
-trap 'echo "Y U no love me?!"; rm -f "$PID_FILE"; exit 0' SIGINT
-trap 'rm -f "$PID_FILE"; exit 0' SIGQUIT
+# Write its PID to the PID file
+echo $$ > "$PID_FILE"
+
+# Function to handle SIGTERM
+term_handler() {
+    echo "I hate the kill command"
+}
+
+# Function to handle SIGINT (Ctrl+C)
+int_handler() {
+    echo "Y U no love me?!"
+}
+
+# Function to handle SIGQUIT or SIGTERM to cleanup and exit
+quit_handler() {
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+# Trap signals
+trap term_handler SIGTERM
+trap int_handler SIGINT
+trap quit_handler SIGQUIT SIGTERM
 
 # Infinite loop
 while true; do
