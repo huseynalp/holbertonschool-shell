@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-# Script that displays "To infinity and beyond" indefinitely
-# Displays "I am invincible!!!" when receiving a SIGTERM signal
+# Script that displays "To infinity and beyond" indefinitely and "I am invincible!!!" when receiving SIGTERM
 
-# Catch the SIGTERM signal
-trap echo I am invinciblegit push! SIGTERM
+trap "echo I am invincible!!!" SIGTERM
 
-# Infinite loop
 while true
 do
     echo "To infinity and beyond"
