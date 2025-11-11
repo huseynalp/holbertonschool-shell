@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Handle SIGTERM
+trap echo I am invinciblegit push! SIGTERM
+
+# Infinite loop printing the message every 2 seconds
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
