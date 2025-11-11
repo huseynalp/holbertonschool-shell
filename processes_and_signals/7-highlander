@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script prints "To infinity and beyond" indefinitely and shows "I am invincible!!!" when receiving SIGTERM
 
 # Handle SIGTERM
 trap echo I am invinciblegit push! SIGTERM
