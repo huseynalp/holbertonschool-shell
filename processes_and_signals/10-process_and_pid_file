@@ -1,28 +1,16 @@
 #!/usr/bin/env bash
-# Script that runs indefinitely and handles signals
+# Creates a PID file in /var/run and handles signals
 
-PID_FILE="/tmp/myscript.pid"  # Use /tmp instead of /var/run
+PID_FILE="/var/run/myscript.pid"
 
-# Write its PID to the PID file
-echo $$ > "$PID_FILE"
+# Write PID with sudo
+sudo sh -c "echo $$ > $PID_FILE"
 
-# Function to handle SIGTERM
-term_handler() {
-    echo "I hate the kill command"
-}
+# Handle signals
+term_handler() { echo "I hate the kill command"; }
+int_handler() { echo "Y U no love me?!"; }
+quit_handler() { sudo rm -f "$PID_FILE"; exit 0; }
 
-# Function to handle SIGINT (Ctrl+C)
-int_handler() {
-    echo "Y U no love me?!"
-}
-
-# Function to handle SIGQUIT or SIGTERM to cleanup and exit
-quit_handler() {
-    rm -f "$PID_FILE"
-    exit 0
-}
-
-# Trap signals
 trap term_handler SIGTERM
 trap int_handler SIGINT
 trap quit_handler SIGQUIT SIGTERM
