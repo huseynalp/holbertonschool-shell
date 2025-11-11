@@ -5,7 +5,7 @@ PID_FILE="/var/run/myscript.pid"
 
 # Function to clean up and exit
 cleanup() {
-    rm -f "$PID_FILE"
+    sudo rm -f "$PID_FILE"
     exit 0
 }
 
@@ -21,7 +21,7 @@ int_handler() {
 }
 
 # Create PID file with current process ID
-echo $$ > "$PID_FILE"
+sudo bash -c "echo $ > $PID_FILE"
 
 # Set up signal handlers
 trap 'int_handler' SIGINT
