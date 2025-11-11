@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times, and says "Hi" after the 9th iteration
+
+count=1
+while [ "$count" -le 10 ]
+do
+  echo -e "Best School"
+  
+  if [ "$count" -eq 9 ]; then
+    echo -e "Hi"
+  fi
+  
+  count=$((count + 1))
+done
