@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2009
-# Stop 4-to_infinity_and_beyond process without using kill or killall
 
-# Find PID of the running 4-to_infinity_and_beyond
-pid=$(ps -eo pid,cmd | grep 4-to_infinity_and_beyond | grep -v grep | awk {print })
-
-# If PID exists, send Ctrl+C to its stdout
-if [ -n "$pid" ]; then
-    exec 3>/proc/"$pid"/fd/1
-    printf "\x03" >&3
-fi
+# Find all PIDs of the 4-to_infinity_and_beyond process and display them
+ps -eo pid,cmd | grep 4-to_infinity_and_beyond | grep -v grep | awk {print } | while read pid; do
+    echo "Stopping process $pid"
+    # Stop the process by sending SIGTERM
+    echo "$pid" > /proc/$pid/fd/1 2>/proc/$pid/fd/2
+done
