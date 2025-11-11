@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # This script prints "To infinity and beyond" indefinitely and shows "I am invincible!!!" when receiving SIGTERM
 
-# Handle SIGTERM
+# Trap SIGTERM and print message
 trap echo I am invinciblegit push! SIGTERM
 
-# Infinite loop printing the message every 2 seconds
+# Infinite loop
 while true; do
     echo "To infinity and beyond"
     sleep 2
