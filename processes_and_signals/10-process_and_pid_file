@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script that runs indefinitely and handles signals
 
-PID_FILE="/var/run/myscript.pid"
+PID_FILE="/tmp/myscript.pid"  # Use /tmp instead of /var/run
 
 # Write its PID to the PID file
 echo $$ > "$PID_FILE"
