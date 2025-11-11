@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# This script counts occurrences of each visitor IP + HTTP code in apache-access.log
-# and displays them sorted from most frequent to least frequent.
+# second line must be a comment
 
-awk '{count[$1" "$9]++} END {for (key in count) printf "%5d %s\n", count[key], key}' apache-access.log | sort -rn
+awk '{count[$1" "$3]++} END {for (key in count) printf "%5d %s\n", count[key], key}' apache-access.log | sort -rn
