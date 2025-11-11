@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# This script displays numbers from 1 to 20 and shows superstitions for 4, 9, and 17
+
+count=1
+while [ "$count" -le 20 ]
+do
+  case "$count" in
+    4)
+      echo -e "4"
+      echo -e "bad luck from China"
+      ;;
+    9)
+      echo -e "9"
+      echo -e "bad luck from Japan"
+      ;;
+    17)
+      echo -e "17"
+      echo -e "bad luck from Italy"
+      ;;
+    *)
+      echo -e "$count"
+      ;;
+  esac
+
+  count=$((count + 1))
+done
