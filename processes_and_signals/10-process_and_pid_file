@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script that manages PID file and handles signals
 
-PID_FILE="/var/run/myscript.pid"
+PID_FILE="/tmp/myscript.pid"
 
 # Function to clean up and exit
 cleanup() {
