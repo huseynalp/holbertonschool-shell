@@ -14,8 +14,8 @@ case "$1" in
         if [ -f "$PID_FILE" ]; then
             kill "$(cat "$PID_FILE")" 2>/dev/null
             rm -f "$PID_FILE"
-            echo "manage_my_process stopped"
         fi
+        echo "manage_my_process stopped"
         ;;
     restart)
         if [ -f "$PID_FILE" ]; then
@@ -30,3 +30,4 @@ case "$1" in
         echo "Usage: manage_my_process {start|stop|restart}"
         ;;
 esac
+
