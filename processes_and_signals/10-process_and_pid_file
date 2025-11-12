@@ -21,12 +21,12 @@ int_handler() {
 }
 
 # Create PID file with current process ID
-sudo bash -c "echo $ > $PID_FILE"
+echo $$ > "$PID_FILE"
 
 # Set up signal handlers
-trap 'int_handler' SIGINT
-trap 'term_handler' SIGTERM
-trap 'cleanup' SIGQUIT
+trap int_handler SIGINT
+trap term_handler SIGTERM
+trap cleanup SIGQUIT
 
 # Infinite loop
 while true
